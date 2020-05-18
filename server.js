@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
+const errorHandler = require('./middleware/error.mware');
 
 // LOAD ENV VARS
 dotenv.config({ path: './config/config.env' });
