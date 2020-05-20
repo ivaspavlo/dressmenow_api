@@ -3,6 +3,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
+const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error.mware');
 
@@ -18,10 +20,26 @@ connectDB();
 const app = express();
 
 
+// BODY PARSER
+app.use(express.json());
+
+
+// COOKIE PARSER
+app.use(cookieParser());
+
+
 // DEV LOGGING MIDDLEWARE
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 }
+
+
+// FILE UPLOAD MIDDLEWARE
+app.use(fileUpload());
+
+
+// SET STATIC FOLDER
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 
 // MOUNT ROUTES
