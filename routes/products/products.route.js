@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/products.model');
+const Product = require('../../models/products.model');
 
 const {
   getProducts,
@@ -9,7 +9,7 @@ const {
   createProduct,
   updateProduct,
   deleteProduct
-} = require('../controllers/products.controller');
+} = require('../../controllers/products.controller');
 
 router.route('/')
   .get(getProducts)

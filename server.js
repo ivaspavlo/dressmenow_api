@@ -7,6 +7,9 @@ const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error.mware');
+// ROUTE FILES
+const productsRoutes = require('./routes/products.route');
+const reviewsRoutes = require('./routes/reviews.route');
 
 
 // LOAD ENV VARS
@@ -43,6 +46,8 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 
 // MOUNT ROUTES
+app.use('/api/v1/products', productsRoutes);
+app.use('/api/v1/reviews', reviewsRoutes);
 app.use(errorHandler);
 
 
