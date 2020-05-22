@@ -5,6 +5,7 @@ const colors = require('colors');
 const morgan = require('morgan');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error.mware');
 // ROUTE FILES

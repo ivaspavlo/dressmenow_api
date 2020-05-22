@@ -1,6 +1,6 @@
 
 const path = require('path');
-const asyncHandler = require('../middleware/async');
+const asyncHandler = require('../middleware/async.mware');
 const ErrorResponse = require('../utils/error-response.util');
 const Product = require('../models/products.model');
 

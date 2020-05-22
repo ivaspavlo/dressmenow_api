@@ -8,8 +8,8 @@ const {
   deleteReview
 } = require('../controllers/reviews.controller');
 const Review = require('../models/reviews.model');
-const advancedResults = require('../middleware/advanced-results');
-const { protect } = require('../middleware/auth');
+const advancedResults = require('../middleware/advanced-results.mware');
+const { protect } = require('../middleware/auth.mware');
 
 
 const router = express.Router({ mergeParams: true });

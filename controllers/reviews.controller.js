@@ -1,5 +1,5 @@
 
-const asyncHandler = require('../middleware/async');
+const asyncHandler = require('../middleware/async.mware');
 const ErrorResponse = require('../utils/error-response.util');
 const Review = require('../models/reviews.model');
 const Product = require('../models/products.model');
