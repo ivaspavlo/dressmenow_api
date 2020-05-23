@@ -11,6 +11,8 @@ const errorHandler = require('./middleware/error.mware');
 // ROUTE FILES
 const productsRoutes = require('./routes/products.route');
 const reviewsRoutes = require('./routes/reviews.route');
+const authRoutes = require('./routes/auth.route');
+const usersRoutes = require('./routes/users.route');
 
 
 // LOAD ENV VARS
@@ -49,6 +51,8 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 // MOUNT ROUTES
 app.use('/api/v1/products', productsRoutes);
 app.use('/api/v1/reviews', reviewsRoutes);
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/users', usersRoutes);
 app.use(errorHandler);
 
 
