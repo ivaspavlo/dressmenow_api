@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pavel-ivashchenko/dressmenow_api#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.5",

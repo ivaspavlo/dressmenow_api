@@ -13,6 +13,7 @@ const productsRoutes = require('./routes/products.route');
 const reviewsRoutes = require('./routes/reviews.route');
 const authRoutes = require('./routes/auth.route');
 const usersRoutes = require('./routes/users.route');
+const currencyRoutes = require('./routes/currency.route');
 
 
 // LOAD ENV VARS
@@ -53,6 +54,7 @@ app.use('/api/v1/products', productsRoutes);
 app.use('/api/v1/reviews', reviewsRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', usersRoutes);
+app.use('/api/v1/currency', currencyRoutes);
 app.use(errorHandler);
 
 
