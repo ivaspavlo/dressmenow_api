@@ -8,6 +8,12 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error.mware');
+const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const rateLimit = require('express-rate-limit');
+const hpp = require('hpp');
+const cors = require('cors');
 // ROUTE FILES
 const productsRoutes = require('./routes/products.route');
 const reviewsRoutes = require('./routes/reviews.route');
@@ -39,6 +45,34 @@ app.use(cookieParser());
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 }
+
+
+// MONGO SANITIZE
+app.use(mongoSanitize());
+
+
+// SET SECURITY HEADERS
+app.use(helmet());
+
+
+// PREVENT XSS ATTACKS
+app.use(xss());
+
+
+// ENABLE CORS
+app.use(cors());
+
+
+// RATE LIMIT
+const limiter = rateLimit({
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 100
+});
+app.use(limiter);
+
+
+// PREVENT HTTP PARAM POLUTION
+app.use(hpp());
 
 
 // FILE UPLOAD MIDDLEWARE
